@@ -33,6 +33,7 @@ public class PackageController {
 	 @PostMapping(value = "/addPackage")
 	 public ResponseEntity<Pakage> addPackage(@RequestBody Pakage newPackage) {
 		
+		 /****/
 	    functions.ruleOfDimensions(newPackage);
 		Pakage PakageAdded =  PackageRepository.save(newPackage);
 
