@@ -130,6 +130,9 @@ public class PackageController {
 		  else
 			  return new ResponseEntity<>(HttpStatus.NOT_FOUND); 
 	 }
+	 public int add(int a, int b) {
+		 return a+b;
+	 }
 	 
 	 
 	
