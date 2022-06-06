@@ -1,10 +1,10 @@
 version: "3.7"
 services:
-  mysql:
-    image: mariadb:10.2
+  mariadb:
+    image: mariadb:10.7
     container_name: user-api-mariadb
     environment:
-      - MYSQL_ROOT_PASSWORD=mysql
-      - MYSQL_DATABASE=mysql
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=PackageDB
     ports:
       - "3306:3306"
