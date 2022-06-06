@@ -15,7 +15,7 @@ pipeline {
         stage('Build') { 
             steps { 
                 script{
-                 app = docker.build("McPackage")
+                 app = docker.build("mcpackage")
                 }
             }
         }
