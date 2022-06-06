@@ -9,8 +9,8 @@ pipeline {
     }
 
     tools {
-        jdk 'openjdk-8'
-        maven 'maven 3.6.3'
+        jdk 'jdk8'
+        maven 'Maven 3.3.9'
         dockerTool 'docker-latest'
     }
 
