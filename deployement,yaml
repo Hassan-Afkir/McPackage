@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ecr-app-underwater
+  name: McPackage
   labels:
     app: McPackage
 spec:
