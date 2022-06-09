@@ -1,6 +1,5 @@
-FROM openjdk:13-alpine
-ARG JAR_FILE
+FROM openjdk:8
+ADD target/McPackage-0.0.1-SNAPSHOT.jar McPackage-0.0.1-SNAPSHOT.jar
 COPY target/${JAR_FILE} app.jar
-RUN mkdir -p /site/wwwroot/temp/
-RUN apk --no-cache add curl
-ENTRYPOINT ["java","-jar","/app.jar"]
+EXPOSE 8080
+ENTRYPOINT ["java","-jar","McPackage-0.0.1-SNAPSHOT.jar"]
