@@ -1,2 +1,2 @@
-FROM openjdk:8
+FROM nginx:alpine
 COPY static /usr/share/nginx/html
