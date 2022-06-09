@@ -1,6 +1,6 @@
 version: "3.7"
 services:
-  mysql:
+  mariadb:
     image: mariadb:10.8.3
     container_name: McPackage-mariadb
     environment:
@@ -8,3 +8,5 @@ services:
       - MYSQL_DATABASE=PackageDB
     ports:
       - "3306:3306"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
