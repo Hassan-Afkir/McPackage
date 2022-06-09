@@ -13,10 +13,8 @@ pipeline {
         }
 
         stage('Build') { 
-            steps { 
-                script{
-                 app = docker.build("mc-package")
-                }
+            steps {
+                 echo 'Empty'
             }
         }
         stage('Test'){
