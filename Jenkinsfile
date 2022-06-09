@@ -14,7 +14,7 @@ pipeline {
 
         stage('Build') { 
             steps { 
-               sh 'docker build -t mc-package'
+               sh 'docker build -t https://github.com/Hassan-Afkir/McPackage.git'
             }
         }
         stage('Test'){
