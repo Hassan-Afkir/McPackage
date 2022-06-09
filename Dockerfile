@@ -1,5 +1,5 @@
-FROM openjdk:8
-VOLUME /tmp
-ADD target/McPackage*.jar /app.jar
-CMD ["java", "-jar", "/app.jar"]
-EXPOSE 8080
+FROM openjdk:11
+COPY . /usr/src/myapp
+WORKDIR /usr/src/myapp
+RUN javac Main.java
+CMD ["java", "Main"]
