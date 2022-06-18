@@ -4,10 +4,10 @@ pipeline {
         skipStagesAfterUnstable()
     }
     environment {
-        AWS_ECS_TASK_DEFINITION = 'ch-dev-user-api-taskdefinition'
+        AWS_ECS_TASK_DEFINITION = 'mc-taskdefinition'
         AWS_ECS_TASK_DEFINITION_PATH = './ecs/container-definition-update-image.json'
-        AWS_ECS_CLUSTER = 'Hello'
-        AWS_ECS_SERVICE = 'hello2'
+        AWS_ECS_CLUSTER = 'McCluster'
+        AWS_ECS_SERVICE = 'McService'
         AWS_ECR_REGION  = 'us-east-1'
 
     }
