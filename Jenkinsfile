@@ -42,12 +42,21 @@ pipeline {
             }
         }
         stage('Deploy AWS EC2') {
-            
-             withAWS(region: 'us-east-1', credentials: 'aws-credentials') {
-                     sh 'aws ecs update-service --region ap-northeast-1 --cluster McCluster --service McService --force-new-deployment'
-                 }
-                
-        }
+            steps {
+                script{
+                    //docker.withRegistry('https://216413260795.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:aws-credentials') {
+                        withAWS(region: "${AWS_ECR_REGION}", credentials: 'jenkins') {
+                        	//sh("aws configure set access_key AKIATEYZ4JP5TTRAEITD")
+                        	//sh("aws configure set secret_key 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")
+                        	//sh("aws configure set region us-east-1")
+                            sh("aws ecs register-task-definition --region ${AWS_ECR_REGION} --family ${AWS_ECS_TASK_DEFINITION} --execution-role-arn arn:aws:iam::216413260795:role/ecsTaskExecutionRole --requires-compatibilities EC2 --network-mode bridge --cpu 1024 --memory 512 --container-definitions file://${AWS_ECS_TASK_DEFINITION_PATH}")
+                            def taskRevision = sh(script: "aws ecs describe-task-definition --task-definition ${AWS_ECS_TASK_DEFINITION} | egrep \"revision\" | tr \"/\" \" \" | awk '{print \$2}' | sed 's/,\$//'", returnStdout: true)
+                            sh("aws ecs update-service --cluster ${AWS_ECS_CLUSTER} --service ${AWS_ECS_SERVICE} --task-definition ${AWS_ECS_TASK_DEFINITION}:${taskRevision}")
+                    //    }
+                    }
+                }
+                }
+            }
        
     }
 }
