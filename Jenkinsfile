@@ -44,7 +44,7 @@ pipeline {
         stage('Deploy AWS EC2') {
             steps {
                 script{
-                    //withCredentials([string(credentialsId: 'AWS_EXECUTION_ROL_SECRET', variable: 'AWS_ECS_EXECUTION_ROL')]) {
+                    docker.withRegistry('https://216413260795.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:aws-credentials') {
                         withAWS(region: "${AWS_ECR_REGION}", credentials: 'jenkins') {
                         	sh("aws configure set access_key AKIATEYZ4JP5TTRAEITD")
                         	sh("aws configure set secret_key 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")
