@@ -13,9 +13,8 @@
             "essential": true,
             "environment": [],
             "mountPoints": [],
-            "volumesFrom": []
-    },
-    {
+            "volumesFrom": [],
+    
             "Effect": "Allow",
             "Action": [
                 "iam:PassRole"
