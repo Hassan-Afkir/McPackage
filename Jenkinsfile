@@ -45,7 +45,7 @@ pipeline {
             steps {
                 script{
                     //docker.withRegistry('https://216413260795.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:aws-credentials') {
-                        withAWS(region: "${AWS_ECR_REGION}", credentials: 'aws-credentials') {
+                        withAWS(region: "${AWS_ECR_REGION}", credentials: 'jenkins') {
                         	//sh("aws configure set access_key AKIATEYZ4JP5TTRAEITD")
                         	//sh("aws configure set secret_key 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")
                         	//sh("aws configure set region us-east-1")
