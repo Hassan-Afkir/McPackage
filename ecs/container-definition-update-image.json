@@ -14,5 +14,14 @@
             "environment": [],
             "mountPoints": [],
             "volumesFrom": []
-    }
+    },
+    {
+            "Effect": "Allow",
+            "Action": [
+                "iam:PassRole"
+            ],
+            "Resource": [
+                "arn:aws:iam::216413260795:role/ecsTaskExecutionRole"
+            ]
+  }
 ]
