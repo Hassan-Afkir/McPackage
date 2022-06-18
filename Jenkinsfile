@@ -11,8 +11,13 @@ pipeline {
                 }
             }
         }
-
-        stage('Build') { 
+		stage('Build & Test') {
+            steps {
+                sh 'mvn -B -DskipTests clean package'
+                //sh 'mvn test'
+            }
+        }
+        stage('Docker Build') { 
             steps { 
                 script{
                  app = docker.build("mc-package")
